@@ -8,6 +8,8 @@ if(isset($_REQUEST['username']) && isset($_REQUEST['password'])) {
     echo "username" . $_REQUEST['username'] . "<br>";
     echo "password" . $_REQUEST['password'] . "<br>";
 }
+//2 sử dụng htmlspecialchar để ngăn chăn tấn công XXS 
+
 ?>
 <html>
 
@@ -16,7 +18,7 @@ if(isset($_REQUEST['username']) && isset($_REQUEST['password'])) {
 </head>
 
 <body>
-    <form action="" method="POST">
+    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST">
         Username:
         <br>
         <input type="text" name="username" id="username"><br>
