@@ -2,9 +2,7 @@
 $errors=[];
 //check da ton tai chua]
 //define 
-$username = "";
-$phone = "";
-$email = "";
+$username = $phone = $email ="";
 if($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = $_REQUEST['username'] ;
     $phone = $_REQUEST['phone'];
