@@ -23,11 +23,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
         $errors['email'] = "Dinh dang khong hop le";
     }
-    //NEU K LOIX
-    if(empty($errors)){
-        // show form
-        $submitted = true;
-    }
 
 }
 ?>
@@ -38,14 +33,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 
 <body>
-    <?php if (isset($submitted) && $submitted) :
-    echo "Username:". $username ."<br>";
-    echo "Phone". $phone ."<br>";
-    echo "Email:".$email ."<br>";
-    ?>
-
-    <?php else : ?>
-    <form method="post" action="validation.php">
+    <form method=" post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
         <div class="mt-3">
             <label for="username" class="form-label">Username</label>
             <br>
@@ -67,7 +55,12 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         </div>
         <input type="submit" value="submit">
     </form>
-    <?php endif; ?>
+    <?php 
+    echo "<h2>Thông tin đã nhập:</h2>";
+    echo "Username:". $username ."<br>";
+    echo "Phone". $phone ."<br>";
+    echo "Email:".$email ."<br>";
+    ?>
 </body>
 
 </html>
