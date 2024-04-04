@@ -10,8 +10,6 @@ $employment = "";
 $email = "";
 $password = "";
 $submitted = false;
-
-
 // Kiểm tra xem có dữ liệu được gửi đi không
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Lấy giá trị từ form
